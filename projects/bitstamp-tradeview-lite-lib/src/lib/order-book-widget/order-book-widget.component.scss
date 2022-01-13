@@ -1,0 +1,87 @@
+@import "../scss/variables";
+@import "../scss/mixins";
+
+$width: 900px;
+$height: 500px;
+$scrollbar-width: 6px;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  color: $primary-text-color;
+  width: $width;
+  height: $height;
+
+  .widget-title {
+    flex: 0;
+    @include widget-title;
+  }
+
+  .table {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background-color: $widget-body-bg-color;
+    overflow: hidden;
+    text-align: right;
+
+    .table-header {
+      display: flex;
+      color: $table-header-text-color;
+      background-color: $table-header-bg-color;
+      border-top: 1px solid $table-border-color;
+      border-bottom: 1px solid $table-border-color;
+      font-size: 10px;
+      padding: 4px $scrollbar-width 4px 0;
+
+      span {
+        display: flex;
+        flex: 1;
+        padding: 0 1em;
+        justify-content: flex-end;
+
+        &.ask {
+          justify-content: flex-start;
+        }
+      }
+    }
+
+    .table-data {
+      overflow: auto;
+      @include bitstamp-scrollbar(transparent, $scrollbar-width);
+      border-right: 1px solid transparent;
+
+      .table-row {
+        display: flex;
+        font-size: 12px;
+        color: $primary-text-color;
+
+        span {
+          display: flex;
+          flex: 1;
+          justify-content: flex-end;
+          padding: 0 1em;
+
+          &.sum {
+            color: $sum-color;
+          }
+
+          &.bid {
+            color: $bid-color;
+          }
+
+          &.ask {
+            color: $ask-color;
+            justify-content: flex-start;
+          }
+        }
+      }
+
+      &.cdk {
+        height: $height - 75;
+      }
+    }
+  }
+}
+
+

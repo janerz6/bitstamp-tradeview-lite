@@ -1,0 +1,87 @@
+@import "../scss/variables";
+
+:host {
+  font-family: "Open Sans", -apple-system, blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue", arial, sans-serif;
+
+  .content-wrapper {
+    background-color: rgb(49, 51, 55);
+    height: 100vh;
+  }
+
+  .page-banner {
+    background-color: rgb(24, 25, 27);
+    padding: 1em;
+    color: white;
+
+    .banner-icon {
+      height: 1.5em;
+      display: inline-block;
+
+      .header-logo__line {
+        fill: $bitstamp-green-color;
+      }
+
+      .header-logo__img {
+        height: 100%;
+      }
+
+      .header-logo__text {
+        fill: white;
+      }
+    }
+
+    .banner-subtitle {
+      font-size: 12px;
+      padding-left: 1em;
+      color: $color-gray2;
+      position: relative;
+      top: -4px;
+    }
+
+    bitstamp-settings-menu {
+      display: inline-block;
+      float: right;
+    }
+  }
+
+  .dashboard {
+    padding: 0 1em 1em;
+
+    .order-pair-selector {
+      display: inline-block;
+      position: relative;
+      min-width: 6em;
+      z-index: 1;
+      padding: 0.5em;
+      cursor: pointer;
+      font-weight: bolder;
+      color: $color-blue;
+
+      bitstamp-order-pairs-list {
+        position: absolute;
+        top: 2.35em;
+        left: 0;
+        border: 3px solid $color-gray;
+        border-top-width: 1px;
+        max-height: 50vh;
+      }
+
+      .chevronDown {
+        height: 12px;
+
+        &.rotated {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    bitstamp-order-pair-detail {
+      display: inline-block;
+    }
+
+    .dashboard-content {
+      display: flex;
+      column-gap: 5px;
+    }
+  }
+}

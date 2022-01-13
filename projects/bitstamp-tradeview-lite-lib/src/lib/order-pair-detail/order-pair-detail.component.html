@@ -1,0 +1,4 @@
+<div *ngIf="tickerData">
+  <span class="label">{{currency}}</span>
+  <span class="value">{{tickerData?.last | number:'1.2-2'}}</span>
+</div>

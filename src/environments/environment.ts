@@ -2,8 +2,19 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
-  production: false
+import {BitstampTradeviewLiteSettings} from "bitstamp-tradeview-lite-lib";
+
+export interface Environment {
+  production: boolean;
+  bitstampTradeviewLiteSettings: BitstampTradeviewLiteSettings;
+}
+
+export const environment: Environment = {
+  production: false,
+  bitstampTradeviewLiteSettings: {
+    useMocks: true,
+    apiUrl: 'https://www.bitstamp.net/api/'
+  }
 };
 
 /*

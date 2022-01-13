@@ -1,0 +1,91 @@
+@import "../scss/variables";
+@import "../scss/mixins";
+
+.widget-title {
+  flex: 0;
+  @include widget-title;
+}
+
+.widget-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: $widget-body-bg-color;
+  color: $primary-text-color;
+  padding: 1em;
+
+  .label {
+    display: inline-block;
+    min-width: 5em;
+    padding-right: .5em;
+    color: $data-label-text-color;
+    font-size: 12px;
+  }
+
+  .buy-sell-toggle {
+    display: flex;
+    padding: 1em 0 0;
+    margin-bottom: 1em;
+    border-bottom: 1px solid $data-label-text-color;
+
+    span {
+      flex: 1;
+      color: $primary-text-color;
+      text-align: center;
+      border-bottom: 5px solid transparent;
+      cursor: pointer;
+    }
+
+    .buy:hover {
+      border-bottom-color: $bid-color;
+      transition: border-color .25s ease-in-out;
+    }
+
+    .buy:hover {
+      border-bottom-color: rgba($bid-color, .75);
+      transition: border-color .25s ease-in-out;
+    }
+
+    .buy.selected {
+      border-bottom-color: $bid-color;
+    }
+
+    .sell:hover {
+      border-bottom-color: rgba($ask-color, .75);
+      transition: border-color .25s ease-in-out;
+    }
+
+    .sell.selected {
+      border-bottom-color: $ask-color;
+    }
+  }
+
+  .actions {
+    padding-top: .5em;
+
+    button {
+      padding: .7em;
+      background-color: $color-blue;
+      border-color: $color-blue;
+      border-radius: .25em;
+      color: white;
+      font-family: inherit;
+      font-size: 12px;
+      cursor: pointer;
+
+      &:hover:not([disabled]) {
+        background-color: rgba($color-blue, .8);
+      }
+
+      &:disabled {
+        background-color: rgba($color-blue, .5);
+        border-color: rgba($color-blue, .5);
+      }
+    }
+  }
+
+  input {
+    background-color: $color-gray3;
+    outline: none;
+  }
+}

@@ -3,6 +3,12 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "bitstamp-tradeview-lite-lib": [
+        "projects/bitstamp-tradeview-lite-lib/src",
+        "projects/bitstamp-tradeview-lite-lib/*/src"
+      ]
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,

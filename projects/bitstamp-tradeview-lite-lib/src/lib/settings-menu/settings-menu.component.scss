@@ -1,0 +1,17 @@
+@import "../scss/variables";
+
+.menu-icon {
+  height: 1em;
+  padding-top: 0.18em;
+  position: relative;
+
+  .menuDropdown {
+    padding: 1em;
+    position: absolute;
+    left: -120px;
+    right: -10px;
+    top: 45px;
+    background-color: $widget-item-bg-color;
+    border: 1px solid $widget-body-bg-color;
+  }
+}

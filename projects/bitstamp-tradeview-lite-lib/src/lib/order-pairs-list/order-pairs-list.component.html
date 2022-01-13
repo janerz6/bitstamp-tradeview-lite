@@ -1,0 +1,8 @@
+<div class="list" (click)="onClick($event)">
+  <div class="item"
+       [class.selected]="selectedPair?.name === tradingPair.name"
+       (click)="selectedPair = tradingPair; selectionChanged.next(selectedPair)"
+       *ngFor="let tradingPair of tradingPairs">
+    <span>{{tradingPair.name}}</span>
+  </div>
+</div>

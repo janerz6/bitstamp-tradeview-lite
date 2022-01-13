@@ -1,0 +1,39 @@
+@import "../scss/variables";
+@import "../scss/mixins";
+
+:host {
+  display: flex;
+
+  .list {
+    background-color: $widget-body-bg-color;
+    color: $primary-text-color;
+    flex: 1;
+    overflow: auto;
+    @include bitstamp-scrollbar($widget-item-bg-color);
+
+    .item {
+      position: relative;
+      height: 30px;
+      font-size: 12px;
+      padding: 0 16px;
+      line-height: 30px;
+      background-color: $widget-item-bg-color;
+      border-bottom: 1px solid $widget-item-border-color;
+      border-right: 1px solid $widget-item-border-color;
+      cursor: pointer;
+
+      &.selected {
+        background-color: $widget-selected-item-bg-color;
+
+        &:before {
+          position: absolute;
+          left: 1px;
+          height: 100%;
+          width: 4px;
+          background-color: $widget-selected-item-marker-color;
+          content: "";
+        }
+      }
+    }
+  }
+}

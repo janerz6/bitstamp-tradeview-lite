@@ -1,0 +1,42 @@
+<div class="widget-title">Order book</div>
+<div class="table" *ngIf="orderBook">
+  <div class="table-header">
+    <span>Sum</span>
+    <span>Value</span>
+    <span>Amount</span>
+    <span>Bid</span>
+    <!-- Asks -->
+    <span class="ask">Ask</span>
+    <span>Amount</span>
+    <span>Value</span>
+    <span>Sum</span>
+  </div>
+  <cdk-virtual-scroll-viewport itemSize="17" class="table-data cdk">
+    <div *cdkVirtualFor="let data of tableData" class="table-row">
+      <span class="sum">{{data?.bid?.sum | number:'1.2-2'}}</span>
+      <span class="value">{{data?.bid?.value | number:'1.2-2'}}</span>
+      <span class="value">{{data?.bid?.amount | number:'1.2-2'}}</span>
+      <span class="bid">{{data?.bid?.bid}}</span>
+      <!-- Asks -->
+      <span class="ask">{{data?.ask?.ask}}</span>
+      <span class="amount">{{data?.ask?.amount| number:'1.2-2'}}</span>
+      <span class="value">{{data?.ask?.value | number:'1.2-2'}}</span>
+      <span class="sum">{{data?.ask?.sum | number:'1.2-2'}}</span>
+    </div>
+  </cdk-virtual-scroll-viewport>
+  <!-- how would it look without without virtual scroll  -->
+  <!--    <div class="table-data">-->
+  <!--      <div *ngFor="let data of tableData" class="table-row">-->
+  <!--        <span class="sum">{{data?.bid?.sum | number:'1.2-2'}}</span>-->
+  <!--        <span class="value">{{data?.bid?.value}}</span>-->
+  <!--        <span class="value">{{data?.bid?.amount}}</span>-->
+  <!--        <span class="bid">{{data?.bid?.bid}}</span>-->
+  <!--        &lt;!&ndash; Asks &ndash;&gt;-->
+  <!--        <span class="ask">{{data?.ask?.ask}}</span>-->
+  <!--        <span class="amount">{{data?.ask?.amount}}</span>-->
+  <!--        <span class="value">{{data?.ask?.value}}</span>-->
+  <!--        <span class="sum">{{data?.ask?.sum | number:'1.2-2'}}</span>-->
+  <!--      </div>-->
+  <!--    </div>-->
+</div>
+

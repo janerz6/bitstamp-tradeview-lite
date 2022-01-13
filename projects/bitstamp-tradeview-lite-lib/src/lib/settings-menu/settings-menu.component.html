@@ -1,0 +1,17 @@
+<div class="menu-icon">
+      <span (click)="settingsMenuOpen = !settingsMenuOpen">
+        <svg data-v-3d0f1b14="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+             style="enable-background:new 0 0 512 512" xml:space="preserve" class="menu-icon">
+            <g data-v-3d0f1b14="" fill="currentColor">
+              <circle data-v-3d0f1b14="" cx="256" cy="256" r="64"></circle>
+              <circle data-v-3d0f1b14="" cx="256" cy="448" r="64"></circle>
+              <circle data-v-3d0f1b14="" cx="256" cy="64" r="64"></circle>
+            </g>
+        </svg>
+      </span>
+  <div class="menuDropdown" [hidden]="!settingsMenuOpen">
+    <div>Mocked api
+      <input type="checkbox" #mockedApi [checked]="useMocks" (change)="setMockedApi(mockedApi.checked)"/>
+    </div>
+  </div>
+</div>

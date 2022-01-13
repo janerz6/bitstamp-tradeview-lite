@@ -1,0 +1,17 @@
+@import "../scss/variables";
+
+:host {
+  padding: 0.5em;
+
+  .label {
+    font-size: 12px;
+    color: $data-label-text-color;
+  }
+
+  .value {
+    padding-left: 1em;
+    font-size: 12px;
+    font-weight: bolder;
+    color: $primary-text-color;
+  }
+}

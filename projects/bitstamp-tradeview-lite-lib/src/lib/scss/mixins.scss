@@ -1,0 +1,36 @@
+@import "variables";
+
+// This code is supported by most modern browsers, but does not provide cross browser support (IE, FF)
+// To add cross browser support some custom library or advanced implementations should be used
+// For assigment purposes this was not optimized
+// https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar
+@mixin bitstamp-scrollbar($background :'transparent', $width: 6px) {
+  // custom scrollbar
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: $background;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: rgb(74, 76, 81);
+    border-radius: 3px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: $color-gray2;
+  }
+}
+
+@mixin widget-title {
+  color: $widget-header-text-color;
+  background-color: $widget-header-bg-color;
+  text-transform: uppercase;
+  padding: 16px 14px;
+  font-size: 10px;
+}

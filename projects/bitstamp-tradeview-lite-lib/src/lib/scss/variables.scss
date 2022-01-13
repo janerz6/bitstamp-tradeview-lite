@@ -1,0 +1,23 @@
+$primary-text-color: #ffffff;
+$color-gray: rgb(32, 33, 36);
+$color-gray2: rgb(99, 102, 109);
+$color-gray3: rgb(149, 153, 163);
+$color-blue: rgb(100, 175, 255);
+$bitstamp-green-color: rgb(21, 158, 73);
+$bid-color: $bitstamp-green-color;
+$ask-color: rgb(223, 66, 73);
+$sum-color: rgb(131, 131, 132);
+
+$data-label-text-color: $color-gray3;
+
+$table-header-text-color: rgb(74, 76, 81);
+$table-header-bg-color: rgb(28, 29, 32);
+$table-border-color: rgb(45, 47, 51);
+
+$widget-header-text-color: $color-gray3;
+$widget-header-bg-color: $color-gray;
+$widget-item-bg-color: rgb(43, 45, 49);
+$widget-item-border-color: $color-gray;
+$widget-body-bg-color: rgb(24, 25, 27);
+$widget-selected-item-bg-color: rgba(32, 33, 36, 0.5);
+$widget-selected-item-marker-color: $bid-color;

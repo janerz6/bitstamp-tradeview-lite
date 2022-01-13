@@ -1,0 +1,31 @@
+<div class="widget-title">trade</div>
+<div class="widget-body">
+  <div class="buy-sell-toggle">
+    <span class="buy" (click)="selectTradeType('buy')" [class.selected]="tradeType === 'buy'">Buy</span>
+    <span class="sell" (click)="selectTradeType('sell')" [class.selected]="tradeType === 'sell'">Sell</span>
+  </div>
+  <div>
+    <span class="label">
+      <span *ngIf="tradeType == null || isBuy">Bid</span>
+      <span *ngIf="tradeType == null">/</span>
+      <span *ngIf="!isBuy">Ask</span>
+    </span>
+    <input name="bid-ask" type="number" [(ngModel)]="bidAsk">
+  </div>
+  <div>
+    <span class="label">Amount</span>
+    <input name="amount" type="number" step='0.01' [(ngModel)]="amount">
+  </div>
+  <div>
+    <span class="label">Value</span>
+    <input name="value" type="number" [value]="value" readonly>
+  </div>
+  <div class="actions">
+    <button
+      class="buy"
+      [disabled]="!validate()"
+      [title]="!validate() ? 'Insert required data to proceed.':''"
+      (click)="submitTrade()">Submit trade
+    </button>
+  </div>
+</div>
