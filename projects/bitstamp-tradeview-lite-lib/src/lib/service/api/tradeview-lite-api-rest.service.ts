@@ -1,5 +1,5 @@
 import {HttpClient} from "@angular/common/http";
-import {delay, Observable, of} from "rxjs";
+import {Observable, of} from "rxjs";
 import {Ask, Bid, OrderBook, TickerData, TradingPairInfo} from "../../bitstamp-tradeview-lite.model";
 import {BitstampTradeviewLiteApiService} from "./tradeview-lite-api.service";
 import {SettingsService} from "../settings/settings.service";

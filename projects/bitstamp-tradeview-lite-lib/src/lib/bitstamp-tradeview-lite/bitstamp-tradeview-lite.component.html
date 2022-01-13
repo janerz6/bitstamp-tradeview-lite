@@ -14,6 +14,7 @@
         <bitstamp-order-pairs-list
           *ngIf="dropdownOpen"
           [selectedPair]="selectedOrderPair"
+          [tradingPairs]="tradingPairs"
           (selectionChanged)="onSelectionChanged($event)"
           (close)="closeDropdownWithDelay(250)">
         </bitstamp-order-pairs-list>
@@ -21,8 +22,8 @@
       <bitstamp-order-pair-detail [orderPair]="selectedOrderPair"></bitstamp-order-pair-detail>
     </div>
     <div class="dashboard-content">
-      <bitstamp-order-book [currencyPairId]="selectedOrderPair?.url_symbol"></bitstamp-order-book>
-      <bitstamp-trade-widget></bitstamp-trade-widget>
+      <bitstamp-order-book [currencyPairId]="selectedOrderPair?.url_symbol" [updater]="orderBookUpdater"></bitstamp-order-book>
+      <bitstamp-trade-widget (tradePlaced)="orderBookUpdater.next($event)"></bitstamp-trade-widget>
     </div>
   </div>
 </div>

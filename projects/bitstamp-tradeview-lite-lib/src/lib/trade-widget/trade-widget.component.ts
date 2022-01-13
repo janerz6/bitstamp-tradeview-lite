@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {BitstampTradeviewLiteApiService} from "../service/api/tradeview-lite-api.service";
 import {Ask, Bid} from "../bitstamp-tradeview-lite.model";
 
@@ -15,6 +15,8 @@ export class TradeWidgetComponent {
   isBuy?: boolean;
   amount?: number;
   bidAsk?: number;
+
+  @Output() tradePlaced = new EventEmitter<Ask | Bid>();
 
   constructor(private apiService: BitstampTradeviewLiteApiService) {
   }
@@ -40,10 +42,16 @@ export class TradeWidgetComponent {
       alert('Insert required data to proceed.');
     } else if (this.tradeType === 'buy') {
       this.apiService.submitBid(new Bid(String(this.bidAsk), String(this.amount)))
-        .subscribe(() => alert('Bid was successfully submitted.'));
+        .subscribe(r => {
+          alert('Bid was successfully submitted.');
+          this.tradePlaced.emit(r);
+        });
     } else {
       this.apiService.submitAsk(new Ask(String(this.bidAsk), String(this.amount)))
-        .subscribe(() => alert('Ask was successfully submitted.'));
+        .subscribe(r => {
+          alert('Ask was successfully submitted.');
+          this.tradePlaced.emit(r);
+        });
     }
   }
 }

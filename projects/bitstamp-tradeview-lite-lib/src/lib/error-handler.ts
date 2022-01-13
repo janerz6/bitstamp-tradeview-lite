@@ -4,7 +4,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class CustomErrorHandler implements ErrorHandler {
   handleError(error: Error) {
     if (error instanceof HttpErrorResponse) {
-      alert('Unexpected HttpError: ' + error.message)
+      alert('Unexpected HttpError:\n' + error.message)
     } else {
       console.error('Unexpected error:', error)
     }

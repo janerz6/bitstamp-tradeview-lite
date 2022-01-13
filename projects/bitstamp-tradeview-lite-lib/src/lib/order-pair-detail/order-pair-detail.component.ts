@@ -16,15 +16,15 @@ export class OrderPairDetailComponent {
   @Input()
   set orderPair(value: TradingPairInfo | undefined) {
     this._orderPair = value;
+    this.tickerData = undefined;
+    this.currency = undefined;
+    this.cdr.detectChanges();
     if (value) {
-      this.currency = value.name.split("/")[1]
+      this.currency = value.name.split("/")[1];
       this.apiService.getTicker(value.url_symbol).subscribe(data => {
         this.tickerData = data;
         this.cdr.detectChanges();
       });
-    } else {
-      this.tickerData = undefined;
-      this.currency = undefined;
     }
   }
 

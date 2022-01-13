@@ -1,5 +1,5 @@
 <div class="widget-title">Order book</div>
-<div class="table" *ngIf="orderBook">
+<div class="table">
   <div class="table-header">
     <span>Sum</span>
     <span>Value</span>
@@ -24,6 +24,12 @@
       <span class="sum">{{data?.ask?.sum | number:'1.2-2'}}</span>
     </div>
   </cdk-virtual-scroll-viewport>
+  <div *ngIf="(showLoader || errorMsg) && (!tableData || tableData.length === 0)" class="table-data cdk empty">
+    <div>
+      <span *ngIf="!errorMsg"><div class="loader"></div></span>
+      <ng-container *ngIf="errorMsg">{{errorMsg}}<i class="icon-reload" (click)="loadData()"></i></ng-container>
+    </div>
+  </div>
   <!-- how would it look without without virtual scroll  -->
   <!--    <div class="table-data">-->
   <!--      <div *ngFor="let data of tableData" class="table-row">-->
@@ -39,4 +45,3 @@
   <!--      </div>-->
   <!--    </div>-->
 </div>
-

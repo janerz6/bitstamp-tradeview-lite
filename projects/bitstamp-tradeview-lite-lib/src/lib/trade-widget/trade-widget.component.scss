@@ -78,8 +78,10 @@
       }
 
       &:disabled {
-        background-color: rgba($color-blue, .5);
-        border-color: rgba($color-blue, .5);
+        background-color: rgba($color-blue, .2);
+        border-color: rgba($color-blue, .2);
+        color: rgba(white, .2);
+        cursor: not-allowed;
       }
     }
   }
@@ -87,5 +89,19 @@
   input {
     background-color: $color-gray3;
     outline: none;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    line-height: 25px;
+    font-family: inherit;
+    margin: 2px 0;
+
+    &:focus:not(:read-only) {
+      border-bottom-color: $bitstamp-green-color;
+    }
+
+    &:read-only {
+      background-color: rgba($color-gray3, .5);
+      cursor: default;
+    }
   }
 }

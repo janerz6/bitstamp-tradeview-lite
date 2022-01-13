@@ -12,7 +12,7 @@ export interface Environment {
 export const environment: Environment = {
   production: false,
   bitstampTradeviewLiteSettings: {
-    useMocks: true,
+    useMocks: false,
     apiUrl: 'https://www.bitstamp.net/api/'
   }
 };
