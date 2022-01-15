@@ -11,7 +11,7 @@ import {BitstampTradeviewLiteApiService} from "./service/api/tradeview-lite-api.
 import {tradeviewServiceFactory} from "./service/api/tradeview-api-service.factory";
 import {TradeWidgetComponent} from './trade-widget/trade-widget.component';
 import {SettingsService} from "./service/settings/settings.service";
-import {CustomErrorHandler} from "./error-handler";
+import {CustomErrorHandler} from "./error-handler/error-handler";
 import {SettingsMenuComponent} from './settings-menu/settings-menu.component';
 
 @NgModule({

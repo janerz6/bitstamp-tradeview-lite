@@ -22,6 +22,10 @@
       border-right: 1px solid $widget-item-border-color;
       cursor: pointer;
 
+      &:hover {
+        background-color: $color-gray2;
+      }
+
       &.selected {
         background-color: $widget-selected-item-bg-color;
 

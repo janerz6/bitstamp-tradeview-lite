@@ -1,6 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BitstampTradeviewLiteComponent } from './bitstamp-tradeview-lite.component';
+import {BitstampTradeviewLiteComponent} from './bitstamp-tradeview-lite.component';
+import {BitstampTradeviewLiteApiService} from "bitstamp-tradeview-lite-lib";
+import {BitstampTradeviewLiteMockService} from "../service/api/tradeview-lite-api-mock.service";
 
 describe('BitstampTradeviewLiteComponent', () => {
   let component: BitstampTradeviewLiteComponent;
@@ -8,9 +10,13 @@ describe('BitstampTradeviewLiteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BitstampTradeviewLiteComponent ]
+      declarations: [BitstampTradeviewLiteComponent],
+      providers: [{
+        provide: BitstampTradeviewLiteApiService,
+        useClass: BitstampTradeviewLiteMockService
+      }]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

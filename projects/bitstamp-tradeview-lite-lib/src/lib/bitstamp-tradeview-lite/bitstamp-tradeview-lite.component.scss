@@ -47,6 +47,10 @@
   .dashboard {
     padding: 0 1em 1em;
 
+    .dashboard-header {
+      min-height: 38px;
+    }
+
     .order-pair-selector {
       display: inline-block;
       position: relative;
@@ -83,5 +87,23 @@
       display: flex;
       column-gap: 5px;
     }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  :host .content-wrapper {
+    height: auto;
+  }
+
+  .dashboard-content {
+    flex-direction: column;
+  }
+
+  bitstamp-order-book {
+    max-width: calc(100vw - 2em);
+  }
+
+  bitstamp-trade-widget {
+    margin-top: 1em;
   }
 }

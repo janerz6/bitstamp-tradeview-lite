@@ -8,7 +8,7 @@
   </div>
   <div class="dashboard">
     <div class="dashboard-header">
-      <div class="order-pair-selector" (click)="dropdownOpen = !dropdownOpen">
+      <div *ngIf="selectedOrderPair?.name" class="order-pair-selector" (click)="dropdownOpen = !dropdownOpen">
         <span>{{selectedOrderPair?.name}} </span>
         <ng-container *ngTemplateOutlet="chevronDownIcon"></ng-container>
         <bitstamp-order-pairs-list

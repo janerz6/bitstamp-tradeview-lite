@@ -1,3 +1,5 @@
+import {InjectionToken} from "@angular/core";
+
 export interface TradingPairInfo {
   trading: any;
   base_decimals: number;
@@ -74,4 +76,5 @@ export interface BitstampTradeviewLiteSettings {
   apiUrl: string;
 }
 
-export const BITSTAMP_TRADEVIEW_LITE_SETTINGS_INJECTION_TOKEN = 'BITSTAMP-TRADEVIEW-LITE-SETTINGS';
+export const BITSTAMP_TRADEVIEW_LITE_SETTINGS_INJECTION_TOKEN =
+  new InjectionToken<BitstampTradeviewLiteSettings>('BITSTAMP-TRADEVIEW-LITE-SETTINGS');

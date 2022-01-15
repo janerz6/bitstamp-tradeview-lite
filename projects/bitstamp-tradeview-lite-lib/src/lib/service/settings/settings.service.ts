@@ -11,9 +11,9 @@ export class SettingsService {
   private readonly LOCAL_STORAGE_KEY = 'bitstampTradeviewLiteSettings';
   private readonly withLocalStorage: boolean;
   settings: BitstampTradeviewLiteSettings = {
-    useMocks: true,
+    useMocks: false,
     apiUrl: 'https://www.bitstamp.net/api/'
-  };
+  }; // defaults
 
   constructor(private injector: Injector) {
     // Use DI in Angular application
@@ -31,7 +31,7 @@ export class SettingsService {
     if (localSettingsStr) {
       const localSettings = JSON.parse(localSettingsStr);
       if (localSettings) {
-        this.settings.useMocks = localSettings.useMocks;
+        this.settings = localSettings;
       }
     }
   }
@@ -39,7 +39,7 @@ export class SettingsService {
   setUseMocks(useMocks: boolean) {
     this.settings.useMocks = useMocks;
     if (this.withLocalStorage) {
-      localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify({useMocks: useMocks}));
+      localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(this.settings));
       window.location.reload();
     }
   }
