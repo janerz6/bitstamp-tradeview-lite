@@ -13,6 +13,7 @@ import {TradeWidgetComponent} from './trade-widget/trade-widget.component';
 import {SettingsService} from "./service/settings/settings.service";
 import {CustomErrorHandler} from "./error-handler/error-handler";
 import {SettingsMenuComponent} from './settings-menu/settings-menu.component';
+import {NotificationDialogComponent} from './notification-dialog/notification-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {SettingsMenuComponent} from './settings-menu/settings-menu.component';
     OrderPairDetailComponent,
     OrderBookWidgetComponent,
     TradeWidgetComponent,
-    SettingsMenuComponent
+    SettingsMenuComponent,
+    NotificationDialogComponent
   ],
   imports: [CommonModule, HttpClientModule, ScrollingModule, FormsModule],
   providers: [

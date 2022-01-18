@@ -1,0 +1,7 @@
+<div class="wrapper" [class.shadow]="notificationActive">
+  <div class="dialog" *ngIf="notificationActive">
+    <span class="close" (click)="closeNotificationDialog()">✖</span>
+    <h4>{{title}}</h4>
+    <p>{{message}}</p>
+  </div>
+</div>

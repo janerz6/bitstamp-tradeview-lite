@@ -41,7 +41,7 @@ describe('SettingsService', () => {
     prepareTestingModule();
 
     expect(service).toBeTruthy();
-    expect(service.settings.useMocks).toBeTrue();
+    expect(service.settings.useMocks).toBeFalse();
     expect(service.settings.apiUrl).toBe('https://www.bitstamp.net/api/');
   });
 

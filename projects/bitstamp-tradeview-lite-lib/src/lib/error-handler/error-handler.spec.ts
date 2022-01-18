@@ -2,10 +2,12 @@ import {ErrorHandler} from "@angular/core";
 import {HttpErrorResponse} from "@angular/common/http";
 import {fakeAsync, TestBed} from "@angular/core/testing";
 import {CustomErrorHandler} from "./error-handler";
+import {NotificationsService} from "../service/notifications/notifications.service";
 
 
 describe('ErrorHandler', () => {
   let errorHandler: any;
+  let notificationService: any;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -13,12 +15,14 @@ describe('ErrorHandler', () => {
         {
           provide: ErrorHandler,
           useClass: CustomErrorHandler
-        }
+        },
+        NotificationsService
       ]
     })
       .compileComponents();
     errorHandler = TestBed.inject(ErrorHandler);
-    spyOn(window, 'alert');
+    notificationService = TestBed.inject(NotificationsService);
+    spyOn(notificationService, 'notify');
     spyOn(console, 'error');
   });
 
@@ -26,7 +30,7 @@ describe('ErrorHandler', () => {
     errorHandler.handleError(new HttpErrorResponse({status: 403, url: 'http://test.url'}));
 
     expect(console.error).not.toHaveBeenCalled()
-    expect(window.alert).toHaveBeenCalledWith('Unexpected HttpError:\n' +
+    expect(notificationService.notify).toHaveBeenCalledWith('API Error',
       'Http failure response for http://test.url: 403 undefined');
   }));
 
@@ -35,6 +39,6 @@ describe('ErrorHandler', () => {
     errorHandler.handleError(error);
 
     expect(console.error).toHaveBeenCalledWith('Unexpected error:', error);
-    expect(window.alert).not.toHaveBeenCalled();
+    expect(notificationService.notify).not.toHaveBeenCalled();
   }));
 });

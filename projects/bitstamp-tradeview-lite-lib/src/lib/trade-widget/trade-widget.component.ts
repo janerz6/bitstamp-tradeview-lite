@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {BitstampTradeviewLiteApiService} from "../service/api/tradeview-lite-api.service";
 import {Ask, Bid} from "../bitstamp-tradeview-lite.model";
+import {NotificationsService} from "../service/notifications/notifications.service";
 
 declare type TradeType = 'buy' | 'sell';
 
@@ -18,7 +19,7 @@ export class TradeWidgetComponent {
 
   @Output() tradePlaced = new EventEmitter<Ask | Bid>();
 
-  constructor(private apiService: BitstampTradeviewLiteApiService) {
+  constructor(private apiService: BitstampTradeviewLiteApiService, private notificationService: NotificationsService) {
   }
 
   selectTradeType(tradeType: TradeType) {
@@ -39,17 +40,17 @@ export class TradeWidgetComponent {
 
   submitTrade() {
     if (!this.validate()) {
-      alert('Insert required data to proceed.');
+      this.notificationService.notify('Missing required data', 'Insert required data to proceed.');
     } else if (this.tradeType === 'buy') {
       this.apiService.submitBid(new Bid(String(this.bidAsk), String(this.amount)))
         .subscribe(r => {
-          alert('Bid was successfully submitted.');
+          this.notificationService.notify('Bid submitted', 'Bid was successfully submitted.');
           this.tradePlaced.emit(r);
         });
     } else {
       this.apiService.submitAsk(new Ask(String(this.bidAsk), String(this.amount)))
         .subscribe(r => {
-          alert('Ask was successfully submitted.');
+          this.notificationService.notify('Ask submitted', 'Ask was successfully submitted.');
           this.tradePlaced.emit(r);
         });
     }
