@@ -1,9 +1,9 @@
 import {Environment} from "./environment-model";
 
 export const environment: Environment = {
-  production: true,
+  production: false,
   bitstampTradeviewLiteSettings: {
-    useMocks: true,
-    apiUrl: 'https://www.bitstamp.net/api/'
+    useMocks: false,
+    apiUrl: '/api/'
   }
 };

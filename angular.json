@@ -64,6 +64,20 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "development-proxy": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev-proxy.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -76,6 +90,10 @@
             },
             "development": {
               "browserTarget": "bitstamp-tradeview-lite:build:development"
+            },
+            "development-proxy": {
+              "browserTarget": "bitstamp-tradeview-lite:build:development-proxy",
+              "proxyConfig": "src/proxy.conf.js"
             }
           },
           "defaultConfiguration": "development"

@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4000",
+    "start-with-proxy": "ng serve --port 4000 --configuration development-proxy",
     "build": "ng build",
     "build:lib": "ng build bitstamp-tradeview-lite-lib",
     "test:lib-headless": "ng test bitstamp-tradeview-lite-lib --browsers ChromeHeadless",
